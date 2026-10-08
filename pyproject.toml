@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ndlar-raw-movie"
+version = "0.1.0"
+description = "Headless raw/packet HDF5 phosphor movies for the ND-LAr 2x2"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.23,<3", "h5py>=3.8,<4", "Pillow>=10,<13", "imageio-ffmpeg>=0.5,<1"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+raw-movie = "raw_movie.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["raw_movie*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
